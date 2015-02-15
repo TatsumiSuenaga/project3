@@ -28,7 +28,7 @@ if [ "$sport" == "b" ]; then
 		grep -A 0 "womens-basketball" links.txt | uniq
 		echo
 	else  
-		echo "Invalid character! Exiting program. "
+		echo "Invalid input! Exiting program. "
 	fi
 	#end gender
 fi
@@ -58,7 +58,7 @@ if [ "$sport" == "i" ]; then
 		grep -A 0 "womens-hockey" links.txt | uniq
 		echo
 	else  
-		echo "Invalid character! Exiting program."
+		echo "Invalid input! Exiting program."
 	fi
 	#end gender
 fi
@@ -86,7 +86,7 @@ if [ "$sport" == "t" ]; then
 		grep -A 0 "womens-tennis" links.txt | uniq
 		echo
 	else  
-		echo "Invalid character! Exiting program."
+		echo "Invalid input! Exiting program."
 	fi
 	#end gender
 fi
@@ -109,6 +109,6 @@ if [ "$sport" == "q" ]; then
 	echo "Goodbye!"
 	echo
 elif [ "$sport" != "b" ] && [ "$sport" != "f" ] && [ "$sport" != "i" ] && [ "$sport" != "t" ]; then #Invalid character, including empty
-	echo "Invalid character! Exiting program. "
+	echo "Invalid input! Exiting program. "
 	echo
 fi
