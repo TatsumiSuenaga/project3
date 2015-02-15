@@ -108,7 +108,7 @@ fi
 if [ "$sport" == "q" ]; then
 	echo "Goodbye!"
 	echo
-elif [ "$sport" != "b" ] && [ "$sport" != "f" ] && [ "$sport" != "i" ] && [ "$sport" != "t" ]; then #Invalid character
+elif [ "$sport" != "b" ] && [ "$sport" != "f" ] && [ "$sport" != "i" ] && [ "$sport" != "t" ]; then #Invalid character, including empty
 	echo "Invalid character! Exiting program. "
 	echo
 fi
