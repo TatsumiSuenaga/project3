@@ -1,5 +1,5 @@
 #!/bin/bash
-#author Asad Iqbal
+#author Asad Iqbal, Tatsumi Suenaga, Sophy Chen
 
 #Ask the user to choose a sport
 echo "Which OSU sports team do you want to know more about?"
