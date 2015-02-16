@@ -20,10 +20,10 @@ if [ "$sport" == "b" ]; then
 		grep -A 0 "womens-basketball" links.txt | uniq
 	elif [ "$gender" == "m" ]; then #Mens Basketball
 		echo -e "\nHere is some info on Men's Basketball\n"
-		grep -A 0 "mens-basketball" links.txt | uniq
+		grep -A 0 -- "-mens-basketball" links.txt | uniq
 	elif [ "$gender" == "b" ]; then #Both Womens and Mens Basketball
 		echo -e "\nHere is some info on Basketball\n"
-		grep -A 0 "mens-basketball" links.txt | uniq
+		grep -A 0 -- "-mens-basketball" links.txt | uniq
 		echo
 		grep -A 0 "womens-basketball" links.txt | uniq
 		echo
@@ -50,10 +50,10 @@ if [ "$sport" == "i" ]; then
 		grep -A 0 "womens-hockey" links.txt | uniq
 	elif [ "$gender" == "m" ]; then #Mens Ice Hockey
 		echo -e "\nHere is some info on Men's Ice Hockey\n"
-		grep -A 0 "mens-hockey" links.txt | uniq
+		grep -A 0 -- "-mens-hockey" links.txt | uniq
 	elif [ "$gender" == "b" ]; then #Both Womens and Mens Ice Hockey
 		echo -e "\nHere is some info on Ice Hockey\n"
-		grep -A 0 "mens-hockey" links.txt | uniq
+		grep -A 0 -- "-mens-hockey" links.txt | uniq
 		echo
 		grep -A 0 "womens-hockey" links.txt | uniq
 		echo
@@ -78,10 +78,10 @@ if [ "$sport" == "t" ]; then
 		grep -A 0 "womens-tennis" links.txt | uniq
 	elif [ "$gender" == "m" ]; then #Mens Tennis
 		echo -e "\nHere is some info on Men's Tennis\n"
-		grep -A 0 "mens-tennis" links.txt | uniq
+		grep -A 0 -- "-mens-tennis" links.txt | uniq
 	elif [ "$gender" == "b" ]; then #Both Womens and Mens Tennis
 		echo -e "\nHere is some info on Tennis\n"
-		grep -A 0 "mens-tennis" links.txt | uniq
+		grep -A 0 -- "-mens-tennis" links.txt | uniq
 		echo
 		grep -A 0 "womens-tennis" links.txt | uniq
 		echo
