@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+    <title>A Simple Calculator</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+    body{
+            background-color: #ffffff;
+        }
+    #box{
+        background-color: #FFE4C4;
+        width:600px;
+        height:auto;
+        margin:100px auto;
+        padding-top:20px;
+        padding-left:20px;
+        padding-bottom:10px;
+        padding-right:20px;
+        border-radius:10px;
+        border-style:none;
+        
+    }
+    #output{
+        width:560px;
+        height:35px;
+        margin:10px;
+        background-color:#F0F8FF;
+        border-style:none;
+        border-radius:5px;
+        padding:10px 10px;
+        font-size:30px;
+        color: black;
+        text-align:right;
+    }
+    .input{
+        width:575px;
+        height:auto;
+        margin:10px;
+        background-color:#DEB887;
+        border-style:none;
+        border-radius:5px;
+        padding:20px,10px;
+    }
+    .input td{
+       float:left;
+       width:40px;
+       height:20px;
+       margin-left:15px;
+       margin-right:15px;
+       margin-bottom:5px;
+       margin-top:5px;
+       padding-left:10px;
+       padding-right:10px;
+       padding-top:12px;
+       padding-bottom:10px;
+       background-color:grey;
+       border-radius:10px;
+       cursor:pointer;
+       color:#696969;
+       text-align:center;
+            }
+    .input td#special{
+        background-color:transparent;
+    }
+    .input td#operator{
+        background-color:#FF8C00;
+    }
+    .input td#equal{
+        background-color:#DEB887;
+    }
+    .input td#clears{
+        width:130px;
+        background-color:#008B8B;
+        color:#800000;
+    }
+    .input td#memories{
+        background-color:#CD5C5C;
+        
+    }
+    </style>
+    <script type="text/javascript">
+        var allInputs = document.getElementsByTagName("td");
+        for(var i=0;i<allInputs.length;i++){
+            allInputs[i].onclick=function(){
+                var current=document.getElementById("output");
+                var clicked=this.innerHTML;
+                if(clicked=="C"){
+                    current.innerHTML="";
+                }else if(clicked=="="){
+                    var equal=current.innerHTML;
+                    if(equal){
+                        current.innerHTML=eval(equal);
+                    }
+                }else{
+                current.innerHTML+=clicked;
+                }
+            }
+        }
+        
+    </script>
+    </head>
+    <body>
+        <div id="box">
+            <div id="output"></div>
+            <div class="input">
+            <table>
+                <tr>
+                <td id="memories">M+</td>
+                <td id="memories">M-</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td id="operator">+</td>
+                </tr>
+                <tr>
+                    <td id="memories">MC</td>
+                    <td id="memories">MR</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td id="operator">-</td>
+                </tr>
+                <tr>
+                    <td id="clears">C</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td id="operator">*</td>
+                </tr>
+                <tr>
+                    <td id="clears">AC</td>
+                    <td>0</td>
+                    <td id="special"></td>
+                    <td>=</td>
+                    <td id="operator">/</td>
+                </tr>
+            </table>
+            </div>
+        </div>
+    </body>
+</html>
