@@ -79,26 +79,7 @@
         
     }
     </style>
-    <script type="text/javascript">
-        var allInputs = document.getElementsByTagName("td");
-        for(var i=0;i<allInputs.length;i++){
-            allInputs[i].onclick=function(){
-                var current=document.getElementById("output");
-                var clicked=this.innerHTML;
-                if(clicked=="C"){
-                    current.innerHTML="";
-                }else if(clicked=="="){
-                    var equal=current.innerHTML;
-                    if(equal){
-                        current.innerHTML=eval(equal);
-                    }
-                }else{
-                current.innerHTML+=clicked;
-                }
-            }
-        }
-        
-    </script>
+    
     </head>
     <body>
         <div id="box">
@@ -139,4 +120,81 @@
             </div>
         </div>
     </body>
+    <script type="text/javascript">
+        function isOperator(val){
+            var ans=false;
+            if(val=="*"||val=="/"||val=="-"||val=="+"){
+                ans=true;
+            }
+            return ans;
+        }
+        var allInputs = document.getElementsByTagName("td");
+        var numArray=[];
+        var lastOperator="";
+        var inputString="";
+        var memory=0;
+        var wasEqual=false;
+        for(var i=0;i<allInputs.length;i++){
+            allInputs[i].onclick=function(){
+                var display=document.getElementById("output");
+                var clicked=this.innerHTML;
+                if(clicked=="C"){
+                    display.innerHTML="";
+                    numArray.splice(numArray.length-1,numArray.length);
+                    var temp=inputString.slice(0,inputString.lastIndexOf(lastOperator)+1);
+                    inputString=temp;
+                }else if(clicked=="="){
+                    var answer=eval(inputString);
+                    display.innerHTML=answer;
+                    memory=answer;
+                    numArray[numArray.length]=answer;
+                    inputString=answer;
+                    wasEqual=true;
+                }else if(clicked=="AC"){
+                    inputString="";
+                    display.innerHTML="";
+                }else if(clicked=="MC"){
+                    memory=0;
+                }else if(clicked=="MR"){
+                    display.innerHTML=memory;
+                    inputString+=memory;
+                }else if(clicked=="M+"){
+                    var addedNum=Number(display.innerHTML);
+                    memory=addedNum+memory;
+                    numArray[numArray.length]=memory;
+                    inputString=memory;
+                }else if(clicked=="M-"){
+                    var subNum=Number(display.innerHTML);
+                    memory=memory-subNum;
+                    numArray[numArray.length]=memory;
+                    inputString=memory;
+                }
+                else{
+                    //clicked is a number
+                    if(!isOperator(clicked)){
+                        //previous click is an operator, display should be the new click number
+                        if(isOperator(inputString[inputString.length-1])){
+                            display.innerHTML=clicked;
+                        }else if(wasEqual){
+                            display.innerHTML=clicked;
+                            inputString="";
+                        }
+                        else{//previous click is not an operator, this a number, keep displaying
+                        display.innerHTML+=clicked;
+                        }
+                    }else{//clicked is an operator, display the entire number
+                        var temp=display.innerHTML;
+                        var num=Number(temp);
+                        numArray[numArray.length]=num;
+                        lastOperator=clicked;
+                    }
+                    inputString+=clicked;
+                    wasEqual=false;
+                   
+                    
+                }
+            }
+        }
+    
+        </script>
 </html>
